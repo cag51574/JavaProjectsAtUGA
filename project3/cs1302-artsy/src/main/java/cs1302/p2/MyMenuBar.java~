@@ -1,0 +1,8 @@
+
+class MyMenuBar extends MenuBar {
+
+    MyMenuBar(){}
+    
+   1
+   
+    

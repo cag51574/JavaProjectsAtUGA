@@ -1,0 +1,18 @@
+
+#main-pane {
+    -fx-background-color: blue;
+}
+
+#welcome-text {
+    -fx-font-size: 2em;
+    -fx-font-weight: bold;
+    -fx-fill: red;
+}
+
+
+#one{
+    -fx-background-color: green;
+    -fx-font-size: 2em;
+    -fx-font-weight: bold;
+    -fx-fill: red;
+}

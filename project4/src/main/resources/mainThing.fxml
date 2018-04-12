@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXMLController">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="12.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="588.0" minWidth="10.0" prefWidth="580.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="588.0" minWidth="5.0" prefWidth="10.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="141.0" minHeight="0.0" prefHeight="76.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="111.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#eightBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="8" textFill="BLUE" GridPane.columnIndex="1" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#fourBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="4" textFill="BLUE" GridPane.rowIndex="1" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#fiveBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="5" textFill="BLUE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#nineBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="9" textFill="BLUE" GridPane.columnIndex="2" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#sixBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="6" textFill="BLUE" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#rShiftBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="&gt;&gt;" textFill="BLUE" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#clearBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="X" textFill="BLUE" GridPane.columnIndex="6" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#delBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="&lt;" textFill="BLUE" GridPane.columnIndex="5" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#lShiftBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="&lt;&lt;" textFill="BLUE" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#expBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="^" textFill="BLUE" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#factBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="!" textFill="BLUE" GridPane.columnIndex="4" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#multBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="*" textFill="BLUE" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#divBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="/" textFill="BLUE" GridPane.columnIndex="3" />
+            <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#sevenBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="7" textFill="BLUE" />
+         </children>
+      </GridPane>
+      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane GridPane.rowIndex="1">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="83.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="166.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="83.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="249.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#zeroBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="0" textFill="BLUE" />
+                  <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#equalBtn" prefHeight="44.0" prefWidth="157.0" style="-fx-border-color: blue; -fx-background-color: black;" text="=" textFill="BLUE" GridPane.columnIndex="1" />
+                  <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#addBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="+" textFill="BLUE" GridPane.columnIndex="2" />
+                  <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#hideBinaryBtn" prefHeight="44.0" prefWidth="241.0" style="-fx-border-color: blue; -fx-background-color: black;" text="Hide Binary" textFill="BLUE" GridPane.columnIndex="3" />
+               </children>
+            </GridPane>
+            <GridPane>
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.0" minWidth="10.0" prefWidth="83.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.0" minWidth="10.0" prefWidth="82.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="209.0" minWidth="10.0" prefWidth="83.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="83.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="249.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#twoBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="2" textFill="BLUE" GridPane.columnIndex="1" />
+                  <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#threeBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="3" textFill="BLUE" GridPane.columnIndex="2" />
+                  <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#minBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="-" textFill="BLUE" GridPane.columnIndex="3" />
+                  <Button id="hi" fx:id="recBtn" alignment="CENTER" mnemonicParsing="false" onAction="#useRecursionBtn" prefHeight="44.0" prefWidth="241.0" style="-fx-border-color: blue; -fx-background-color: black;" text="Use Recursion" textFill="BLUE" GridPane.columnIndex="4" />
+                  <Button id="hi" alignment="CENTER" mnemonicParsing="false" onAction="#oneBtn" prefHeight="44.0" prefWidth="74.0" style="-fx-border-color: blue; -fx-background-color: black;" text="1" textFill="BLUE" />
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="lab31" prefHeight="0.0" prefWidth="15.0" text="31" textFill="BLUE" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab0" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="0.0" prefWidth="15.0" text="0" textFill="BLUE" GridPane.columnIndex="18" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="bin31" onMouseClicked="#bin31e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+            <Label fx:id="bin30" onMouseClicked="#bin30e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+            <Label fx:id="bin29" onMouseClicked="#bin29e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+            <Label fx:id="bin28" onMouseClicked="#bin28e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+            <Label fx:id="bin27" onMouseClicked="#bin27e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+            <Label fx:id="bin26" onMouseClicked="#bin26e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="6" GridPane.halignment="RIGHT" />
+            <Label fx:id="bin25" onMouseClicked="#bin25e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="7" GridPane.halignment="RIGHT" />
+            <Label fx:id="bin24" onMouseClicked="#bin24e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="8" GridPane.halignment="RIGHT" />
+            <Label fx:id="bin23" onMouseClicked="#bin23e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="10" GridPane.halignment="RIGHT" />
+            <Label fx:id="bin22" onMouseClicked="#bin22e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="11" GridPane.halignment="RIGHT" />
+            <Label fx:id="bin21" onMouseClicked="#bin21e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="12" GridPane.halignment="RIGHT" />
+            <Label fx:id="bin20" onMouseClicked="#bin20e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="13" GridPane.halignment="RIGHT" />
+            <Label fx:id="bin19" onMouseClicked="#bin19e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="15" GridPane.halignment="RIGHT" />
+            <Label fx:id="bin18" onMouseClicked="#bin18e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="16" GridPane.halignment="RIGHT" />
+            <Label fx:id="bin17" onMouseClicked="#bin17e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="17" GridPane.halignment="RIGHT" />
+            <Label fx:id="bin16" onMouseClicked="#bin16e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="18" GridPane.halignment="RIGHT" />
+            <Label fx:id="bin15" onMouseClicked="#bin15e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin14" onMouseClicked="#bin14e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin13" onMouseClicked="#bin13e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin12" onMouseClicked="#bin12e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin11" onMouseClicked="#bin11e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin10" onMouseClicked="#bin10e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin9" onMouseClicked="#bin9e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin8" onMouseClicked="#bin8e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin7" onMouseClicked="#bin7e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="10" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin6" onMouseClicked="#bin6e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="11" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin5" onMouseClicked="#bin5e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="12" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin4" onMouseClicked="#bin4e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="13" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin3" onMouseClicked="#bin3e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="15" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin2" onMouseClicked="#bin2e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="16" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin1" onMouseClicked="#bin1e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="17" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="bin0" onMouseClicked="#bin0e" prefHeight="31.0" prefWidth="0.0" style="-fx-background-color: black;" text="0" textFill="BLUE" GridPane.columnIndex="18" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label fx:id="lab15" prefHeight="0.0" prefWidth="15.0" text="15" textFill="BLUE" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab27" prefHeight="0.0" prefWidth="15.0" text="27" textFill="BLUE" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab11" prefHeight="0.0" prefWidth="15.0" text="11" textFill="BLUE" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab23" prefHeight="0.0" prefWidth="15.0" text="23" textFill="BLUE" GridPane.columnIndex="10" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab7" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="7" textFill="BLUE" GridPane.columnIndex="10" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab19" prefHeight="0.0" prefWidth="15.0" text="19" textFill="BLUE" GridPane.columnIndex="15" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab3" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="0.0" prefWidth="15.0" text="3" textFill="BLUE" GridPane.columnIndex="15" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab16" prefHeight="0.0" prefWidth="15.0" text="16" textFill="BLUE" GridPane.columnIndex="18" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab8" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="8" textFill="BLUE" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab28" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="28" textFill="BLUE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab12" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="12" textFill="BLUE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab24" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="24" textFill="BLUE" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab20" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="20" textFill="BLUE" GridPane.columnIndex="13" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab4" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="4" textFill="BLUE" GridPane.columnIndex="13" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab30" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="30" textFill="BLUE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab29" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="29" textFill="BLUE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab14" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="14" textFill="BLUE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab13" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="13" textFill="BLUE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab10" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="10" textFill="BLUE" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab26" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="26" textFill="BLUE" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab25" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="25" textFill="BLUE" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab22" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="22" textFill="BLUE" GridPane.columnIndex="11" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab21" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="21" textFill="BLUE" GridPane.columnIndex="12" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab9" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="9" textFill="BLUE" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab6" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="6" textFill="BLUE" GridPane.columnIndex="11" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab5" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="5" textFill="BLUE" GridPane.columnIndex="12" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab18" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="18" textFill="BLUE" GridPane.columnIndex="16" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab17" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="17" textFill="BLUE" GridPane.columnIndex="17" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="lab2" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="2" textFill="BLUE" GridPane.columnIndex="16" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label fx:id="lab1" alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="15.0" text="1" textFill="BLUE" GridPane.columnIndex="17" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <GridPane GridPane.columnIndex="1">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="64.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="529.0" minWidth="10.0" prefWidth="515.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="input1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-alignment: right;" text="Input:" textFill="BLUE" GridPane.halignment="RIGHT" />
+            <Label fx:id="input" alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-alignment: right;" text="" textFill="BLUE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+            <Label fx:id="output" alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-alignment: right;" text="0" textFill="BLUE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label fx:id="input11" alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-alignment: right;" text="Output:" textFill="BLUE" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+   </children>
+</GridPane>

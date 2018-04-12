@@ -1,0 +1,1 @@
+javac -d /home/cam/school/softDev/project5/target/scala-2.10/classes -classpath /home/cam/school/softDev/project5/target/scala-2.10/classes:/home/cam/school/softDev/project5/lib/fxgame.jar:/home/cam/.sbt/boot/scala-2.10.4/lib/scala-library.jar /home/cam/school/softDev/project5/src/main/java/cs1302/fxgame/BrickBreaker.java

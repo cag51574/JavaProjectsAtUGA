@@ -1,0 +1,490 @@
+import java.io.File;
+import java.util.Random;
+import java.util.Scanner;
+/**
+ * This class represents a Minesweeper game.
+ *
+ * @author Cameron Garratt <cag51574@uga.edu>
+ */
+public class Minesweeper {
+
+    private int flag1 = 0;
+    private int flag2 = 0;
+    private int minesMarked = 0;
+    private int round = 0;
+    private int rows;
+    private int cols;
+    private int numOfMines;
+    private int incorrectMarks;
+    private int score;
+    
+    
+    
+    /**
+     * Constructs an object instance of the {@link Minesweeper} class using the
+     * information provided in <code>seedFile</code>. Documentation about the 
+     * format of seed files can be found in the project's <code>README.md</code>
+     * file.
+     *
+     * @param seedFile the seed file used to construct the game
+     * @see            <a href="https://github.com/mepcotterell-cs1302/cs1302-minesweeper-alpha/blob/master/README.md#seed-files">README.md#seed-files</a>
+     */
+    /**
+     * 
+     */
+    public Minesweeper(File seedFile) {
+
+	// TODO implement
+        try{
+            Scanner scanner = new Scanner(seedFile);
+            rows = scanner.nextInt();
+            cols = scanner.nextInt();
+            numOfMines = scanner.nextInt();
+            score = (rows*cols) - numOfMines - round; 
+            int[][] mines = new int[rows+2][cols+2];
+            for(int i = rows; i>=0; i--){
+                for(int j = cols; j>=0; j--){
+                    mines[i][j] = 0;
+                }
+            }
+            do{
+                int a =1+ scanner.nextInt();
+                int b =1+ scanner.nextInt();
+
+                mines[a][b] = 1;
+                
+            
+            }while(scanner.hasNext() == true);
+
+
+        }catch(Exception e){ 
+            System.out.println("Cannot create game with " + seedFile + ", because it is not formatted correctly.");
+            System.exit(0);
+        }
+    } // Minesweeper
+
+
+    /**
+     * Constructs an object instance of the {@link Minesweeper} class using the
+     * <code>rows</code> and <code>cols</code> values as the game grid's number
+     * of rows and columns respectively. Additionally, One quarter (rounded up) 
+     * of the squares in the grid will will be assigned mines, randomly.
+     *
+     * @param rows the number of rows in the game grid
+     * @param cols the number of cols in the game grid
+     */
+    public Minesweeper(int rows, int cols) {
+
+        this.rows = rows;
+        this.cols = cols;
+        int mines[][] = new int[rows][cols];
+        
+        score = (rows*cols) - numOfMines - round; 
+        numOfMines= (int) rows*cols/10;
+
+
+    } // Minesweeper
+    
+
+    /**
+     * Starts the game and execute the game loop.
+     */
+    public void run() {
+
+        gameLoop();
+    } // run
+
+
+    //This is the main game loop responsible for running the game.
+    private void gameLoop(){
+
+
+        String[][] squares = new String[rows][cols];
+        int[][] mines = setMines();
+
+        Scanner scanner = new Scanner(System.in); 
+        String[] userInput = new String[3];
+
+        for(int i = rows-1; i>=0; i--){
+            for(int j = cols-1; j>=0; j--){
+                squares[i][j] = " ";
+            }
+        }
+
+        //This is the start of the main loop. 
+        do{
+            printBoard(round, squares);
+            for(int i = 0; i <= 2;i++){
+                userInput[i] = scanner.next();
+                if (userInput[0].equals("q")|| userInput[0].equals("quit")){
+                    quit();
+                    break;
+                } else if (userInput[0].equals("h")|| userInput[0].equals("help")){
+                    help();
+                    round--;
+                    break;
+                } else if (userInput[0].equals("nofog")){
+                    round++;
+                    nofog(round,squares,mines);
+                    i--;                    
+                }else if (userInput[0].equals("m")|| userInput[0].equals("mark")){
+
+                    flag1 = 2;
+                } else if (userInput[0].equals("r")|| userInput[0].equals("reveal")){
+
+                    flag1 = 3;
+                } else if (userInput[0].equals("g")|| userInput[0].equals("guess")){
+                    flag1 = 4;
+                } else {
+                    System.out.println("ಠ_ಠ says, \"Command not recognized!\"");
+                    System.out.println("Type 'h' for help");
+                    round--;
+                    break;
+                }
+            }
+
+            if(flag1 > 1){
+                try{
+                    int r = Integer.parseInt(userInput[1]);
+                    int c = Integer.parseInt(userInput[2]);
+                    switch (flag1){
+                        case 2:    mark(r, c, mines, squares);
+                                   break;
+
+                        case 3:    reveal(r, c, mines, squares);
+                                   break;
+
+                        case 4:    guess(r, c, squares, mines);
+                                   break;
+
+                        default: System.out.println("Error");
+                                 break;
+                    }
+                }catch(Exception e){
+                    System.out.println("This is not a valid input");
+                }
+                flag1 = 0;   
+                
+            }
+            round++;
+
+        }while (flag1 == 0 && flag2 == 0);
+        scanner.close();
+        System.exit(0);
+    }
+
+
+    //prints the game board
+    private void printBoard(int round, String[][] squares){
+
+        System.out.println("...\n");
+        System.out.println("round: "+ round);
+        for(int i = 0; i < rows; i++){
+
+            System.out.print("\n " + i + " |");
+            for(int j = 0; j < cols; j++){
+                
+                System.out.print( " " + squares[i][j] + " " +  "|");
+            }
+        }
+
+        System.out.print("\n     ");
+        for(int i = 0; i<cols; i++){
+            System.out.print(i+"   ");
+        }
+
+        System.out.println("\n");
+        System.out.print("minesweeper-alpha$ ");    
+
+    }
+
+
+    //Commands
+    //Mark -- Marks squares for mines. If all mines are marked then you win.
+    private void mark(int r, int c, int[][] mines, String[][] squares){
+        squares[r][c] = "F";
+        // Marked square did not contain a mine.
+        if(checkMines(r,c,mines)==true ){
+            minesMarked++;
+        }
+
+        //If the number of mines marked equals the total number of mines you win.
+
+        checkWin(squares,mines);
+    }
+
+    //Guess -- Used to mark a potenial square.
+    private void guess(int r, int c, String[][] squares, int[][] mines){
+
+        //Mark guessed square with x.
+        squares[r][c] = "x";
+        checkWin(squares,mines);
+
+    }
+
+    //Reveal -- Reveals the square. If square contains a mine, you loose. 
+    //            If not, the square will show the total number of squares adjacent to it.
+    private void reveal(int r, int c, int[][] mines, String[][] squares){
+
+        //Check to see if square has mine.
+        if(checkMines(r,c,mines)==true){
+            gameOver();
+            
+        //Check adjacent squares
+        } else {
+            squares[r][c] = checkAdjacentSquares(r,c,mines);
+        }            
+        checkWin(squares,mines);
+    }
+
+    //noFog -- Shows the location of all mines. Uses up one round. 
+    private void nofog(int round, String[][] squares, int[][] mines){
+        System.out.println("...\n");
+        System.out.println("round: "+ round);
+        for(int i = 0; i < rows; i++){
+
+            System.out.print("\n " + (i) + " |");
+
+            for(int j = 0; j < cols; j++){
+                if(mines[i+1][j+1] == 1){
+                    
+                    System.out.print("<" + squares[i][j] + ">" +  "|");
+                }else{
+                    System.out.print(" " + squares[i][j] + " " +  "|");
+                }
+            }
+        }
+
+        System.out.print("\n     ");
+        for(int i = 0; i<cols; i++){
+            System.out.print(i+"   ");
+        }
+
+        System.out.println("\n");
+        System.out.print("minesweeper-alpha$ ");    
+
+    }
+
+    //Provides a help messege to the user.
+    private void help(){
+
+        System.out.println("Commands Available...");
+        System.out.println(" - Reveal: r/reveal row col");
+        System.out.println(" -   Mark: m/mark   row col");
+        System.out.println(" -  Guess: g/guess  row col");
+        System.out.println(" -   Help: h/help");
+        System.out.println(" -   Quit: q/quit");
+    }
+
+    //Promptly quits out of the game. 
+    private void quit(){
+
+        flag1 = 1;
+        System.out.println("\nლ(ಠ_ಠლ)");
+        System.out.println("Y U NO PLAY MORE?");
+        System.out.println("Bye!\n");
+    }
+
+    //Sets the mines in the game. Return an int[][] that contains the mine locations.
+    private int[][] setMines(){
+
+
+        Random random = new Random();
+        int a;
+        int b;
+        int[][] mines = new int[rows+2][cols+2];
+        for(int i = rows; i>=0; i--){
+            for(int j = cols; j>=0; j--){
+                mines[i][j] = 0;
+            }
+        }
+        for (int i = 0; i < numOfMines;i++){
+            a = random.nextInt(rows);
+            b = random.nextInt(cols);
+            if(mines[a+1][b+1] == 1){
+                i--;
+            }else{
+                mines[a+1][b+1] = 1;
+            }
+        }
+        
+
+        return mines;
+    }
+
+
+
+    //Checks to see if the square is a mine.
+    private Boolean checkMines(int r, int c,int[][] mines){
+        return mines[r+1][c+1]==1;
+    }
+
+    //Returns the number of adjacent squares.
+
+    private String checkAdjacentSquares(int r, int c, int[][] mines){
+
+        
+        int count = 0;
+        for(int i = r-1; i <=r+1; i++){
+            for( int j = c-1;j <=c+1; j++){
+                if(mines[i+1][j+1] == 1){
+                    count++;
+                }
+            }
+        }
+        return Integer.toString(count);
+    }
+
+
+    //Checks to see if you've won the game.
+    private void checkWin(String[][] squares, int[][] mines){
+        incorrectMarks = 0;
+        minesMarked = 0;
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < cols; j++){
+                if(squares[i][j].equals("F")){
+                    minesMarked++;
+                }
+                if(squares[i][j].equals("F") && mines[i+1][j+1] == 0){
+                    incorrectMarks++;
+                }
+           }
+        }
+        if(minesMarked == numOfMines &&  incorrectMarks == 0){
+            win();
+        }
+    }
+
+   
+    //This is called when the game has been won. :) 
+    private void win(){
+        System.out.println("```");
+        System.out.println("");
+        System.out.println("░░░░░░░░░▄░░░░░░░░░░░░░░▄░░░░ \"So Doge\"");
+        System.out.println("░░░░░░░░▌▒█░░░░░░░░░░░▄▀▒▌░░░");
+        System.out.println("░░░░░░░░▌▒▒█░░░░░░░░▄▀▒▒▒▐░░░ \"Such Score\"");
+        System.out.println("░░░░░░░▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐░░░");
+        System.out.println("░░░░░▄▄▀▒░▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐░░░ \"Much Minesweeping\"");
+        System.out.println("░░░▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌░░░");
+        System.out.println("░░▐▒▒▒▄▄▒▒▒▒░░░▒▒▒▒▒▒▒▀▄▒▒▌░░ \"Wow\"");
+        System.out.println("░░▌░░▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐░░");
+        System.out.println("░▐░░░▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▄▌░");
+        System.out.println("░▌░▒▄██▄▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▌░");
+        System.out.println("▀▒▀▐▄█▄█▌▄░▀▒▒░░░░░░░░░░▒▒▒�░");
+        System.out.println("▐▒▒▐▀▐▀▒░▄▄▒▄▒▒▒▒▒▒░▒░▒░▒▒▒▒▌");
+        System.out.println("▐▒▒▒▀▀▄▄▒▒▒▄▒▒▒▒▒▒▒▒░▒░▒░▒▒▐░");
+        System.out.println("░▌▒▒▒▒▒▒▀▀▀▒▒▒▒▒▒░▒░▒░▒░▒▒▒▌░");
+        System.out.println("░▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▒▄▒▒▐░░");
+        System.out.println("░░▀▄▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▄▒▒▒▒▌░░");
+        System.out.println("░░░░▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀░░░ CONGRATULATIONS!");
+        System.out.println("░░░░░░▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀░░░░░ YOU HAVE WON!");
+        System.out.println("░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▀▀░░░░░░░░ SCORE: " + score);
+        System.out.println("");
+        System.out.println("```");
+        flag2 = 1;
+    } 
+    
+    //This is only called when you have lost the game. :(
+    private void gameOver(){
+        System.out.println("```");
+        System.out.println("");
+        System.out.println(" Oh no... You revealed a mine!");
+        System.out.println("  __ _  __ _ _ __ ___   ___    _____   _____ _ __ ");
+        System.out.println(" / _` |/ _` | '_ ` _ \\ / _ \\  / _ \\ \\ / / _ \\ '__|");
+        System.out.println("| (_| | (_| | | | | | |  __/ | (_) \\ V /  __/ |   ");
+        System.out.println(" \\__, |\\__,_|_| |_| |_|\\___|  \\___/ \\_/ \\___|_|   ");
+        System.out.println(" |___/                                            ");
+        System.out.println("");
+        System.out.println("```");
+        flag2 = 1;
+    }
+
+
+
+
+
+    
+    /**
+     * The entry point into the program. This main method does implement some
+     * logic for handling command line arguments. If two integers are provided
+     * as arguments, then a Minesweeper game is created and started with a 
+     * grid size corresponding to the integers provided and with 10% (rounded
+     * up) of the squares containing mines, placed randomly. If a single word 
+     * string is provided as an argument then it is treated as a seed file and 
+     * a Minesweeper game is created and started using the information contained
+     * in the seed file. If none of the above applies, then a usage statement
+     * is displayed and the program exits gracefully. 
+     *
+     * @param args the shell arguments provided to the program
+     */
+    public static void main(String[] args) {
+
+	/*
+	  The following switch statement has been designed in such a way that if
+	  errors occur within the first two cases, the default case still gets
+	  executed. This was accomplished by special placement of the break
+	  statements.
+	*/
+
+	Minesweeper game = null;
+
+	switch (args.length) {
+
+        // random game
+	case 2: 
+
+	    int rows, cols;
+
+	    // try to parse the arguments and create a game
+	    try {
+                    
+                rows = Integer.parseInt(args[0]);
+                cols = Integer.parseInt(args[1]);
+
+                if(rows>10 || cols>10){
+                     System.out.println(" ಠ_ಠ says, \"Cannot create a mine field with that many rows and/or columns!\"");
+                     break;
+                 }else{
+                System.out.print("\n         _");
+                System.out.print("\n   /\\/\\ (_)_ __   ___  _____      _____  ___ _ __   ___ _ __");
+                System.out.print("\n  /    \\| | '_ \\ / _ \\/ __\\ \\ /\\ / / _ \\/ _ \\ '_ \\ / _ \\ '__|");
+                System.out.print("\n / /\\/\\ \\ | | | |  __/\\__ \\\\ V  V /  __/  __/ |_) |  __/ |");
+                System.out.print("\n \\/    \\/_|_| |_|\\___||___/ \\_/\\_/ \\___|\\___| .__/ \\___|_|");
+                System.out.println("\n                                      ALPHA |_| EDITION\n");
+                game = new Minesweeper(rows, cols);
+                break;
+                }
+	    } catch (NumberFormatException nfe) { 
+		// line intentionally left blank
+	    } // try
+
+	// seed file game
+	case 1: 
+
+	    String filename = args[0];
+	    File file = new File(filename);
+
+	    if (file.isFile()) {
+		game = new Minesweeper(file);
+		break;
+	    } // if
+    
+        // display usage statement
+	default:
+
+	    System.out.print("Usage: java Minesweeper [FILE]");
+	    System.out.print("Usage: java Minesweeper [ROWS] [COLS]");
+	    System.exit(0);
+
+	} // switch
+
+	// if all is good, then run the game
+        try{
+            game.run();
+        }catch(Exception e){
+
+        }
+    } // main
+
+
+} // Minesweeper
